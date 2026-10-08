@@ -1,0 +1,11 @@
+const assert=require('node:assert/strict');
+const {youtubeSearchUrl}=require('../../setlist/ui/youtube.js');
+const row={artist:'Artist & Friends',title:'Song <script>alert(1)</script>',version:'Radio edit',url:'javascript:alert(1)',youtubeUrl:'https://evil.example/redirect'};
+const url=new URL(youtubeSearchUrl(row));
+assert.equal(url.origin,'https://www.youtube.com');
+assert.equal(url.pathname,'/results');
+assert.equal(url.searchParams.get('search_query'),'Artist & Friends Song <script>alert(1)</script> Radio edit');
+assert.equal(youtubeSearchUrl({}),null);
+assert.equal(new URL(youtubeSearchUrl({title:'A Song'})).searchParams.get('search_query'),'A Song');
+assert.ok(!url.searchParams.get('search_query').includes('music video'));
+console.log('YouTube search links safely encode artist/title/version; no supplied URL, autoplay, download or video-only restriction.');

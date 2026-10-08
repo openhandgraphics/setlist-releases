@@ -1,0 +1,23 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const html=fs.readFileSync('./setlist/ui/index.html','utf8');
+const ids=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);
+assert.equal(ids.length,new Set(ids).size,'HTML IDs must be unique');
+assert(html.includes('Playlist matching · No AI'));assert(html.includes('Windows voice typing follows your Windows speech settings.'));assert(!html.includes('understoodRequest'));assert(!html.includes('Here is what I understood'));
+assert(/<textarea id="prompt" placeholder="Describe your playlist…"/.test(html));assert(!/<textarea id="followup"[^>]*placeholder=/.test(html));
+assert(!/\$\('(prompt|followup)'\)\.placeholder/.test(fs.readFileSync('setlist/ui/app.js','utf8')+fs.readFileSync('setlist/ui/conversation.js','utf8')));
+const nodes=new Map(ids.map(id=>[id,{id,hidden:false,value:'',children:[],textContent:'',classList:{toggle(){}},setAttribute(k,v){this[k]=v},append(...x){this.children.push(...x)},replaceChildren(){this.children=[]},addEventListener(t,fn){this[t]=fn},focus(){this.focused=true},querySelectorAll(){return []},click(){return this.onclick?.()}}]));
+const get=id=>{assert.ok(nodes.has(id),'Missing element '+id);return nodes.get(id)};
+const calls=[],row={id:'a',source:'library',title:'One',artist:'Artist'};
+const context={console,$:get,document:{createElement:()=>({setAttribute(){}})},result:{songs:[row],request:{interpretation:'50 songs'},lockedIds:['a'],selectedIds:['a'],canUndo:true,conversation:[]},kept:new Set(['a']),page:1,renderReview(){},updateStatus(){},busy(){},finishBusy(){},closePlayer(){},poll(){},notice(text){context.lastNotice=text},api:async(name,args)=>{calls.push({name,args});return context.result},youtubeSearchUrl:()=>null};
+get('editRequest').onclick=()=>{};
+vm.createContext(context);vm.runInContext(fs.readFileSync('./setlist/ui/conversation.js','utf8'),context);
+context.renderReview();
+assert.equal(nodes.has('followup'),false);assert.equal(nodes.has('sendFollowup'),false);assert.equal(nodes.has('followupMicrophone'),false);
+assert(nodes.has('editRequest'));assert(nodes.has('undoAdjustment'));assert(nodes.has('selectPage'));
+assert.deepEqual([...context.kept],['a']);assert.equal(get('undoAdjustment').disabled,false);
+(async()=>{
+ await get('undoAdjustment').onclick();assert.equal(calls.at(-1).name,'undoRefinement');
+ context.updateStatus({version:'1.7.13',task:{state:'running',timing:{elapsedSeconds:10,etaState:'overrun',progressPercent:null}}});
+ assert.ok(get('busyTiming').textContent.includes('Remaining: recalculating'));
+ console.log('Review control checks passed: removed follow-up input, retained selection/favorites/undo and real timing feedback.');
+})().catch(e=>{console.error(e);process.exitCode=1});

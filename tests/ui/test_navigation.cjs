@@ -1,0 +1,7 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
+const nodes=new Map();function get(id){if(!nodes.has(id))nodes.set(id,{hidden:false,attrs:{},active:false,classList:{toggle(c,on){nodes.get(id).active=on}},setAttribute(k,v){this.attrs[k]=v},removeAttribute(k){delete this.attrs[k]}});return nodes.get(id)}
+const context={$:get,document:{body:{classList:{toggle(){}}}},window:{scrollTo(){}}};vm.createContext(context);const source=fs.readFileSync('setlist/ui/app.js','utf8');vm.runInContext(source.slice(source.indexOf("let currentScreen="),source.indexOf('function busy(')),context);
+function check(screen,id){context.view(screen);const active=['navCreate','navCurrent','navReview'].filter(x=>get(x).active);assert.deepEqual(active,[id]);for(const nav of ['navCreate','navCurrent','navReview'])assert.equal(get(nav).attrs['aria-current'],nav===id?'page':undefined)}
+// Old modal code retains a reference to view; it must still reset every nav item.
+const captured=context.view;check('review','navCurrent');captured('create');assert.equal(get('navCurrent').active,false);check('history','navReview');check('review','navCurrent');check('done','navCurrent');check('create','navCreate');context.setActiveNavigation('review');assert.equal(get('navCreate').active,false);assert.equal(get('navCurrent').attrs['aria-current'],'page');
+console.log('Central navigation state passed: captured modal callbacks, exclusive highlight and aria-current across all screens.');

@@ -1,0 +1,24 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const radios=['create','review'].flatMap(scope=>['prefer-clean','explicit-allowed'].map(value=>({dataset:{contentFilter:scope},value,checked:false})));
+const helpers=['create','review'].map(scope=>({dataset:{contentHelp:scope},textContent:''}));
+const clears=['create','review'].map(scope=>({dataset:{contentClear:scope},hidden:true}));
+const nodes={navCreate:{onclick:async()=>{}},editRequest:{onclick:async()=>{}}},calls=[];
+const ctx={document:{querySelectorAll:s=>s==='[data-content-filter]'?radios:s==='[data-content-clear]'?clears:helpers},$:id=>nodes[id],clearEntry:async()=>{},api:async(name,args)=>{calls.push({name,args});return name==='setContentFilter'?args.contentFilter:ctx.result},updateStatus(){},renderReview(){},canKeep(){return true},result:{request:{contentFilter:'prefer-clean'}},kept:new Set(['song']),protectedSongs:new Set(['song']),closePlayer(){},busy(){},finishBusy(){},poll(){},notice(){}};
+vm.createContext(ctx);vm.runInContext(fs.readFileSync('./setlist/ui/content.js','utf8'),ctx);
+const chosen=scope=>radios.filter(r=>r.dataset.contentFilter===scope&&r.checked).map(r=>r.value);
+(async()=>{
+ assert.deepEqual(chosen('create'),[]);assert.deepEqual(chosen('review'),['prefer-clean']);
+ assert.ok(helpers[0].textContent.includes('No preference'));assert.equal(clears[0].hidden,true);
+ await ctx.api('build',{prompt:'banda'});assert.equal(calls.at(-1).args.contentFilter,null,'Unchecked builds must remain allowed and neutral');
+ await radios[0].onchange();assert.deepEqual(chosen('create'),['prefer-clean']);assert.equal(clears[0].hidden,false);
+ await radios[1].onchange();assert.deepEqual(chosen('create'),['explicit-allowed']);assert.deepEqual(chosen('review'),['prefer-clean']);
+ await clears[0].onclick();assert.deepEqual(chosen('create'),[]);
+ await radios[3].onchange();assert.equal(calls.at(-1).name,'refine');assert.equal(calls.at(-1).args.message,'explicit allowed');assert.deepEqual(Array.from(calls.at(-1).args.lockedIds),['song']);
+ await clears[1].onclick();assert.equal(calls.at(-1).args.message,'no preference');
+ ctx.result={request:{contentFilter:null}};ctx.renderReview();assert.deepEqual(chosen('review'),[]);
+ ctx.updateStatus({contentFilter:'explicit-allowed'});assert.deepEqual(chosen('create'),['explicit-allowed']);
+ await nodes.navCreate.onclick();assert.deepEqual(chosen('create'),[]);
+ ctx.updateStatus({contentFilter:'prefer-clean'});await ctx.clearEntry();assert.deepEqual(chosen('create'),[]);
+ const html=fs.readFileSync('./setlist/ui/index.html','utf8');assert.equal((html.match(/type="radio"/g)||[]).length,4);assert.ok(!/<input[^>]+type="radio"[^>]+checked/.test(html));assert.ok(html.includes('data-sort="contentRating"'));
+ console.log('Radio preference checks passed: neutral unchecked builds, both selections, clear/new-request reset, retained review choice and protected-song arguments.');
+})().catch(e=>{console.error(e);process.exitCode=1});
