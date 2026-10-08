@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+build/
+dist/
+*.exe
+*.zip
+.test-data/
+.test-ui/
+.env
+.env.*
+session.json
+spotify.json
+updates.json
+task-timings.json
+library.json
+server.json

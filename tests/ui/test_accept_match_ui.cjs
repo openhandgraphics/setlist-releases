@@ -1,0 +1,20 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const nodes=new Map();const get=id=>{if(!nodes.has(id))nodes.set(id,{value:'',textContent:'',classList:{toggle(){}},setAttribute(){},replaceChildren(){},append(){},querySelectorAll(){return []},addEventListener(){}});return nodes.get(id)};
+const calls=[];let response;
+const ctx={$:get,console,document:{createElement(){return {}}},result:{request:{},songs:[],selectedIds:['old'],lockedIds:['old']},kept:new Set(['old']),page:2,renderReview(){},closePlayer(){},notice(s){ctx.message=s},updateStatus(){},busy(){},finishBusy(){},filtered(){return ctx.result.songs},api:async(name,args)=>{calls.push({name,args});return response}};
+get('editRequest').onclick=()=>{};
+vm.createContext(ctx);vm.runInContext(fs.readFileSync('setlist/ui/conversation.js','utf8'),ctx);
+ctx.renderReview();
+const handler=fs.readFileSync('setlist/ui/app.js','utf8').split('\n').find(line=>line.startsWith("$('songs').onclick="));assert(handler);vm.runInContext(handler,ctx);
+(async()=>{
+ response={request:{},songs:[{id:'request',source:'library'}],selectedIds:['request'],lockedIds:['request'],matchMessage:'Existing copy combined.'};
+ const button={dataset:{request:'request',accept:'request~0'}};
+ await get('songs').onclick({target:{closest:s=>s==='[data-accept]'?button:null}});
+ assert.equal(calls[0].name,'acceptMatch');assert.deepEqual(Array.from(calls[0].args.keepIds),['old']);assert.deepEqual(Array.from(calls[0].args.lockedIds),['old']);
+ assert.deepEqual(Array.from(ctx.kept),['request'],'confirmed match stays selected after conversation render');
+ assert.equal(ctx.page,0,'merge cannot leave an empty out-of-range page');assert.equal(ctx.message,'Existing copy combined.');
+ ctx.api=async()=>{throw Error('Reconnect the drive before using this match.')};
+ await get('songs').onclick({target:{closest:()=>button}});
+ assert.equal(button.disabled,false);assert.match(ctx.message,/Reconnect/);assert.deepEqual(Array.from(ctx.kept),['request']);
+ console.log('Actual accept-match click handler + conversation render passed: selected state, protected state, merge pagination and errors.');
+})().catch(e=>{console.error(e);process.exitCode=1});

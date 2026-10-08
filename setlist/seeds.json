@@ -1,0 +1,1408 @@
+{
+  "Country": [
+    [
+      "George Strait",
+      "Amarillo by Morning"
+    ],
+    [
+      "George Strait",
+      "The Chair"
+    ],
+    [
+      "Brooks",
+      "Neon Moon"
+    ],
+    [
+      "Brooks",
+      "Boot Scootin"
+    ],
+    [
+      "Brooks",
+      "My Maria"
+    ],
+    [
+      "Alan Jackson",
+      "Chattahoochee"
+    ],
+    [
+      "Alan Jackson",
+      "Five O"
+    ],
+    [
+      "Garth",
+      "Friends in Low Places"
+    ],
+    [
+      "Shania Twain",
+      "Man! I Feel Like a Woman"
+    ],
+    [
+      "Shania Twain",
+      "Any Man of Mine"
+    ],
+    [
+      "Toby Keith",
+      "Should've Been a Cowboy"
+    ],
+    [
+      "Toby Keith",
+      "Red Solo Cup"
+    ],
+    [
+      "Alabama",
+      "Dixieland Delight"
+    ],
+    [
+      "Joe Diffie",
+      "Pickup Man"
+    ],
+    [
+      "Tracy Lawrence",
+      "Time Marches On"
+    ],
+    [
+      "Josh Turner",
+      "Why Don't We Just Dance"
+    ],
+    [
+      "Zac Brown Band",
+      "Chicken Fried"
+    ],
+    [
+      "Darius Rucker",
+      "Wagon Wheel"
+    ],
+    [
+      "Luke Bryan",
+      "Country Girl"
+    ],
+    [
+      "Jon Pardi",
+      "Head Over Boots"
+    ],
+    [
+      "Jon Pardi",
+      "Dirt on My Boots"
+    ],
+    [
+      "Chris Stapleton",
+      "Tennessee Whiskey"
+    ],
+    [
+      "Luke Combs",
+      "When It Rains It Pours"
+    ],
+    [
+      "Luke Combs",
+      "Beautiful Crazy"
+    ],
+    [
+      "Cody Johnson",
+      "Til You Can't"
+    ],
+    [
+      "Midland",
+      "Drinkin' Problem"
+    ],
+    [
+      "Randy Rogers",
+      "Kiss Me in the Dark"
+    ],
+    [
+      "Josh Abbott",
+      "Oh Tonight"
+    ],
+    [
+      "Kevin Fowler",
+      "Beer Bait"
+    ],
+    [
+      "Casey Donahew",
+      "Stockyards"
+    ],
+    [
+      "Jason Boland",
+      "Pearl Snaps"
+    ]
+  ],
+  "Country Current": [
+    [
+      "Shaboozey",
+      "A Bar Song"
+    ],
+    [
+      "Post Malone",
+      "I Had Some Help"
+    ],
+    [
+      "Morgan Wallen",
+      "Last Night"
+    ],
+    [
+      "Morgan Wallen",
+      "Thinkin' Bout Me"
+    ],
+    [
+      "Morgan Wallen",
+      "I'm The Problem"
+    ],
+    [
+      "Morgan Wallen",
+      "What I Want"
+    ],
+    [
+      "Cody Johnson",
+      "Dirt Cheap"
+    ],
+    [
+      "Cody Johnson",
+      "I'm Gonna Love You"
+    ],
+    [
+      "Ella Langley",
+      "You Look Like You Love Me"
+    ],
+    [
+      "Koe Wetzel",
+      "High Road"
+    ],
+    [
+      "Zach Top",
+      "I Never Lie"
+    ],
+    [
+      "Zach Top",
+      "Sounds Like the Radio"
+    ],
+    [
+      "Zach Top",
+      "Bad Luck"
+    ],
+    [
+      "Lainey Wilson",
+      "Watermelon Moonshine"
+    ],
+    [
+      "Luke Combs",
+      "Fast Car"
+    ],
+    [
+      "Luke Combs",
+      "Ain't No Love in Oklahoma"
+    ],
+    [
+      "Jelly Roll",
+      "Need a Favor"
+    ],
+    [
+      "Nate Smith",
+      "Whiskey on You"
+    ],
+    [
+      "Jordan Davis",
+      "Next Thing You Know"
+    ],
+    [
+      "Parker McCollum",
+      "Handle on You"
+    ],
+    [
+      "Dustin Lynch",
+      "Chevrolet"
+    ],
+    [
+      "Thomas Rhett",
+      "Somethin Bout a Woman"
+    ],
+    [
+      "Miranda Lambert",
+      "A Song to Sing"
+    ],
+    [
+      "Braxton Keith",
+      "Cozy"
+    ]
+  ],
+  "Rock": [
+    [
+      "ACDC",
+      "You Shook Me All Night Long"
+    ],
+    [
+      "ACDC",
+      "Back in Black"
+    ],
+    [
+      "Journey",
+      "Don't Stop Believin"
+    ],
+    [
+      "Bon Jovi",
+      "Livin' on a Prayer"
+    ],
+    [
+      "Bon Jovi",
+      "You Give Love a Bad Name"
+    ],
+    [
+      "Guns",
+      "Sweet Child"
+    ],
+    [
+      "Def Leppard",
+      "Pour Some Sugar"
+    ],
+    [
+      "Queen",
+      "Bohemian Rhapsody"
+    ],
+    [
+      "Queen",
+      "Don't Stop Me Now"
+    ],
+    [
+      "Bryan Adams",
+      "Summer of 69"
+    ],
+    [
+      "Joan Jett",
+      "I Love Rock"
+    ],
+    [
+      "The Killers",
+      "Mr. Brightside"
+    ],
+    [
+      "Blink",
+      "All the Small Things"
+    ],
+    [
+      "Jimmy Eat World",
+      "The Middle"
+    ],
+    [
+      "Fall Out Boy",
+      "Sugar"
+    ],
+    [
+      "Paramore",
+      "Misery Business"
+    ],
+    [
+      "Smash Mouth",
+      "All Star"
+    ],
+    [
+      "Nirvana",
+      "Smells Like Teen Spirit"
+    ],
+    [
+      "Red Hot Chili Peppers",
+      "Give It Away"
+    ],
+    [
+      "Sublime",
+      "Santeria"
+    ],
+    [
+      "The Outfield",
+      "Your Love"
+    ],
+    [
+      "Ram Jam",
+      "Black Betty"
+    ],
+    [
+      "ZZ Top",
+      "La Grange"
+    ],
+    [
+      "Lynyrd Skynyrd",
+      "Sweet Home Alabama"
+    ],
+    [
+      "Eagles",
+      "Hotel California"
+    ],
+    [
+      "Nickelback",
+      "Burn It to the Ground"
+    ],
+    [
+      "Kings of Leon",
+      "Sex on Fire"
+    ],
+    [
+      "The All-American Rejects",
+      "Gives You Hell"
+    ]
+  ],
+  "80's": [
+    [
+      "Michael Jackson",
+      "Billie Jean"
+    ],
+    [
+      "Michael Jackson",
+      "Beat It"
+    ],
+    [
+      "Michael Jackson",
+      "Thriller"
+    ],
+    [
+      "Prince",
+      "Kiss"
+    ],
+    [
+      "Prince",
+      "1999"
+    ],
+    [
+      "Whitney Houston",
+      "I Wanna Dance"
+    ],
+    [
+      "Madonna",
+      "Like a Prayer"
+    ],
+    [
+      "Madonna",
+      "Into the Groove"
+    ],
+    [
+      "Cyndi Lauper",
+      "Girls Just Want"
+    ],
+    [
+      "Bon Jovi",
+      "Livin' on a Prayer"
+    ],
+    [
+      "Journey",
+      "Don't Stop Believin"
+    ],
+    [
+      "Rick Astley",
+      "Never Gonna Give You Up"
+    ],
+    [
+      "A-ha",
+      "Take On Me"
+    ],
+    [
+      "Tears for Fears",
+      "Everybody Wants"
+    ],
+    [
+      "Eurythmics",
+      "Sweet Dreams"
+    ],
+    [
+      "New Order",
+      "Blue Monday"
+    ],
+    [
+      "Depeche Mode",
+      "Just Can't Get Enough"
+    ],
+    [
+      "Kenny Loggins",
+      "Footloose"
+    ],
+    [
+      "Whitney Houston",
+      "How Will I Know"
+    ],
+    [
+      "Kool",
+      "Celebration"
+    ],
+    [
+      "Earth Wind",
+      "Let's Groove"
+    ],
+    [
+      "Dexys",
+      "Come On Eileen"
+    ],
+    [
+      "The Outfield",
+      "Your Love"
+    ],
+    [
+      "Billy Ocean",
+      "Caribbean Queen"
+    ]
+  ],
+  "Disco": [
+    [
+      "Chic",
+      "Good Times"
+    ],
+    [
+      "Chic",
+      "Le Freak"
+    ],
+    [
+      "Bee Gees",
+      "Stayin' Alive"
+    ],
+    [
+      "Bee Gees",
+      "Night Fever"
+    ],
+    [
+      "Donna Summer",
+      "Hot Stuff"
+    ],
+    [
+      "Donna Summer",
+      "Last Dance"
+    ],
+    [
+      "Gloria Gaynor",
+      "I Will Survive"
+    ],
+    [
+      "ABBA",
+      "Dancing Queen"
+    ],
+    [
+      "Earth Wind",
+      "September"
+    ],
+    [
+      "Earth Wind",
+      "Boogie Wonderland"
+    ],
+    [
+      "Kool",
+      "Celebration"
+    ],
+    [
+      "Sister Sledge",
+      "We Are Family"
+    ],
+    [
+      "KC",
+      "Get Down Tonight"
+    ],
+    [
+      "KC",
+      "Boogie Shoes"
+    ],
+    [
+      "The Trammps",
+      "Disco Inferno"
+    ],
+    [
+      "Rose Royce",
+      "Car Wash"
+    ],
+    [
+      "Cheryl Lynn",
+      "Got to Be Real"
+    ],
+    [
+      "Wild Cherry",
+      "Play That Funky Music"
+    ]
+  ],
+  "Yacht Rock": [
+    [
+      "Toto",
+      "Africa"
+    ],
+    [
+      "Toto",
+      "Rosanna"
+    ],
+    [
+      "Michael McDonald",
+      "I Keep Forgettin"
+    ],
+    [
+      "Doobie Brothers",
+      "What a Fool Believes"
+    ],
+    [
+      "Doobie Brothers",
+      "Minute by Minute"
+    ],
+    [
+      "Christopher Cross",
+      "Ride Like the Wind"
+    ],
+    [
+      "Christopher Cross",
+      "Sailing"
+    ],
+    [
+      "Steely Dan",
+      "Peg"
+    ],
+    [
+      "Steely Dan",
+      "Deacon Blues"
+    ],
+    [
+      "Steely Dan",
+      "Reelin"
+    ],
+    [
+      "Bobby Caldwell",
+      "What You Won't Do for Love"
+    ],
+    [
+      "Ambrosia",
+      "Biggest Part of Me"
+    ],
+    [
+      "Player",
+      "Baby Come Back"
+    ],
+    [
+      "Pablo Cruise",
+      "Love Will Find a Way"
+    ],
+    [
+      "Little River Band",
+      "Reminiscing"
+    ],
+    [
+      "Hall",
+      "I Can't Go for That"
+    ],
+    [
+      "Hall",
+      "Sara Smile"
+    ],
+    [
+      "Boz Scaggs",
+      "Lowdown"
+    ],
+    [
+      "Boz Scaggs",
+      "Lido Shuffle"
+    ],
+    [
+      "Kenny Loggins",
+      "This Is It"
+    ],
+    [
+      "Gerry Rafferty",
+      "Baker Street"
+    ],
+    [
+      "George Benson",
+      "Give Me the Night"
+    ]
+  ],
+  "Slow songs": [
+    [
+      "Etta James",
+      "At Last"
+    ],
+    [
+      "Elvis Presley",
+      "Can't Help Falling in Love"
+    ],
+    [
+      "Eric Clapton",
+      "Wonderful Tonight"
+    ],
+    [
+      "Ed Sheeran",
+      "Perfect"
+    ],
+    [
+      "Ed Sheeran",
+      "Thinking Out Loud"
+    ],
+    [
+      "John Legend",
+      "All of Me"
+    ],
+    [
+      "Christina Perri",
+      "A Thousand Years"
+    ],
+    [
+      "Lonestar",
+      "Amazed"
+    ],
+    [
+      "Shania Twain",
+      "You're Still the One"
+    ],
+    [
+      "Tim McGraw",
+      "It's Your Love"
+    ],
+    [
+      "George Strait",
+      "I Cross My Heart"
+    ],
+    [
+      "Dan",
+      "Speechless"
+    ],
+    [
+      "Chris Stapleton",
+      "Tennessee Whiskey"
+    ],
+    [
+      "Luke Combs",
+      "Beautiful Crazy"
+    ],
+    [
+      "Adele",
+      "Make You Feel My Love"
+    ],
+    [
+      "Al Green",
+      "Let's Stay Together"
+    ],
+    [
+      "Sade",
+      "By Your Side"
+    ],
+    [
+      "Ben E",
+      "Stand by Me"
+    ],
+    [
+      "Righteous Brothers",
+      "Unchained Melody"
+    ]
+  ],
+  "Bruno Mars": [
+    [
+      "Bruno Mars",
+      "24k Magic"
+    ],
+    [
+      "Bruno Mars",
+      "Treasure"
+    ],
+    [
+      "Bruno Mars",
+      "Locked Out of Heaven"
+    ],
+    [
+      "Bruno Mars",
+      "That's What I Like"
+    ],
+    [
+      "Bruno Mars",
+      "Just the Way You Are"
+    ],
+    [
+      "Bruno Mars",
+      "Marry You"
+    ],
+    [
+      "Bruno Mars",
+      "Runaway Baby"
+    ],
+    [
+      "Mark Ronson",
+      "Uptown Funk"
+    ],
+    [
+      "Silk Sonic",
+      "Leave the Door Open"
+    ],
+    [
+      "Bruno Mars",
+      "Finesse"
+    ],
+    [
+      "Bruno Mars",
+      "APT."
+    ],
+    [
+      "Bruno Mars",
+      "Die with a Smile"
+    ]
+  ],
+  "Recent Pop": [
+    [
+      "Sabrina Carpenter",
+      "Espresso"
+    ],
+    [
+      "Sabrina Carpenter",
+      "Please Please Please"
+    ],
+    [
+      "Sabrina Carpenter",
+      "Taste"
+    ],
+    [
+      "Sabrina Carpenter",
+      "Manchild"
+    ],
+    [
+      "Chappell Roan",
+      "HOT TO GO"
+    ],
+    [
+      "Chappell Roan",
+      "Good Luck"
+    ],
+    [
+      "Chappell Roan",
+      "Pink Pony Club"
+    ],
+    [
+      "Dua Lipa",
+      "Dance the Night"
+    ],
+    [
+      "Dua Lipa",
+      "Houdini"
+    ],
+    [
+      "Dua Lipa",
+      "Training Season"
+    ],
+    [
+      "Miley Cyrus",
+      "Flowers"
+    ],
+    [
+      "Hozier",
+      "Too Sweet"
+    ],
+    [
+      "Billie Eilish",
+      "Birds of a Feather"
+    ],
+    [
+      "Tate McRae",
+      "Greedy"
+    ],
+    [
+      "Tate McRae",
+      "Sports Car"
+    ],
+    [
+      "Ariana Grande",
+      "We Can't Be Friends"
+    ],
+    [
+      "Teddy Swims",
+      "Lose Control"
+    ],
+    [
+      "ROSÃ‰",
+      "APT."
+    ],
+    [
+      "Lady Gaga",
+      "Die with a Smile"
+    ],
+    [
+      "Lady Gaga",
+      "Abracadabra"
+    ],
+    [
+      "Ravyn Lenae",
+      "Love Me Not"
+    ],
+    [
+      "Alex Warren",
+      "Ordinary"
+    ],
+    [
+      "Huntrix",
+      "Golden"
+    ],
+    [
+      "Doechii",
+      "Anxiety"
+    ],
+    [
+      "Paul Russell",
+      "Lil Boo Thang"
+    ],
+    [
+      "Tommy Richman",
+      "Million Dollar Baby"
+    ]
+  ],
+  "Reggaeton": [
+    [
+      "Daddy Yankee",
+      "Gasolina"
+    ],
+    [
+      "Daddy Yankee",
+      "Dura"
+    ],
+    [
+      "Daddy Yankee",
+      "Con Calma"
+    ],
+    [
+      "Daddy Yankee",
+      "Rompe"
+    ],
+    [
+      "Don Omar",
+      "Dile"
+    ],
+    [
+      "Don Omar",
+      "Danza Kuduro"
+    ],
+    [
+      "Don Omar",
+      "Salio El Sol"
+    ],
+    [
+      "Nicky Jam",
+      "El Perdon"
+    ],
+    [
+      "Nicky Jam",
+      "El Amante"
+    ],
+    [
+      "J Balvin",
+      "Mi Gente"
+    ],
+    [
+      "J Balvin",
+      "Ginza"
+    ],
+    [
+      "Luis Fonsi",
+      "Despacito"
+    ],
+    [
+      "Bad Bunny",
+      "Titi Me Pregunto"
+    ],
+    [
+      "Bad Bunny",
+      "Me Porto Bonito"
+    ],
+    [
+      "Bad Bunny",
+      "Yo Perreo Sola"
+    ],
+    [
+      "Bad Bunny",
+      "DÃ¡kiti"
+    ],
+    [
+      "Bad Bunny",
+      "Callaita"
+    ],
+    [
+      "Bad Bunny",
+      "EoO"
+    ],
+    [
+      "KAROL G",
+      "Tusa"
+    ],
+    [
+      "KAROL G",
+      "Provenza"
+    ],
+    [
+      "KAROL G",
+      "Mamiii"
+    ],
+    [
+      "KAROL G",
+      "Qlona"
+    ],
+    [
+      "Plan B",
+      "Candy"
+    ],
+    [
+      "Plan B",
+      "Guatauba"
+    ],
+    [
+      "Ivy Queen",
+      "Yo Quiero Bailar"
+    ],
+    [
+      "Tego Calderon",
+      "Pa' Que Retozen"
+    ],
+    [
+      "FloyyMenor",
+      "Gata Only"
+    ],
+    [
+      "Maluma",
+      "Felices los 4"
+    ]
+  ],
+  "Cumbias": [
+    [
+      "Selena",
+      "Bidi Bidi Bom Bom"
+    ],
+    [
+      "Selena",
+      "La Carcacha"
+    ],
+    [
+      "Selena",
+      "Como La Flor"
+    ],
+    [
+      "Los Angeles Azules",
+      "Como Te Voy a Olvidar"
+    ],
+    [
+      "Los Angeles Azules",
+      "17 AÃ±os"
+    ],
+    [
+      "Los Angeles Azules",
+      "Nunca Es Suficiente"
+    ],
+    [
+      "Los Angeles Azules",
+      "El Liston de Tu Pelo"
+    ],
+    [
+      "Los Angeles Azules",
+      "Toma Que Toma"
+    ],
+    [
+      "Fito Olivares",
+      "Juana La Cubana"
+    ],
+    [
+      "Fito Olivares",
+      "El Colesterol"
+    ],
+    [
+      "La Sonora Dinamita",
+      "Escandalo"
+    ],
+    [
+      "La Sonora Dinamita",
+      "Mi Cucu"
+    ],
+    [
+      "Celso PiÃ±a",
+      "Cumbia Sobre el Rio"
+    ],
+    [
+      "Kumbia Kings",
+      "Sabes a Chocolate"
+    ],
+    [
+      "Raymix",
+      "Oye Mujer"
+    ],
+    [
+      "Los Mirlos",
+      "La Danza de los Mirlos"
+    ],
+    [
+      "Grupo Frontera",
+      "No Se Va"
+    ],
+    [
+      "Grupo Frontera",
+      "Un x100to"
+    ],
+    [
+      "Massore",
+      "La Inconforme"
+    ]
+  ],
+  "Baton Rouge Rap": [
+    [
+      "Boosie",
+      "Wipe Me Down"
+    ],
+    [
+      "Lil Boosie",
+      "Loose as a Goose"
+    ],
+    [
+      "Kevin Gates",
+      "2 Phones"
+    ],
+    [
+      "Kevin Gates",
+      "Really Really"
+    ],
+    [
+      "Kevin Gates",
+      "I Don't Get Tired"
+    ],
+    [
+      "NBA YoungBoy",
+      "Outside Today"
+    ],
+    [
+      "YoungBoy Never Broke Again",
+      "Right Foot Creep"
+    ],
+    [
+      "Mouse and Level",
+      "I Bet U Won't"
+    ],
+    [
+      "Level",
+      "Dumb Dick"
+    ]
+  ],
+  "South Texas": [
+    [
+      "BigXthaPlug",
+      "Texas"
+    ],
+    [
+      "BigXthaPlug",
+      "Mmhmm"
+    ],
+    [
+      "That Mexican OT",
+      "Johnny Dang"
+    ],
+    [
+      "That Mexican OT",
+      "War Wounds"
+    ],
+    [
+      "Paul Wall",
+      "Sittin Sidewayz"
+    ],
+    [
+      "Mike Jones",
+      "Still Tippin"
+    ],
+    [
+      "UGK",
+      "Int'l Players Anthem"
+    ],
+    [
+      "UGK",
+      "International Players Anthem"
+    ],
+    [
+      "Lil Troy",
+      "Wanna Be a Baller"
+    ],
+    [
+      "Slim Thug",
+      "Like a Boss"
+    ],
+    [
+      "Z-Ro",
+      "Mo City Don"
+    ],
+    [
+      "Chalie Boy",
+      "I Look Good"
+    ],
+    [
+      "Fat Pat",
+      "Tops Drop"
+    ],
+    [
+      "DJ Chose",
+      "Thick"
+    ],
+    [
+      "BeatKing",
+      "Then Leave"
+    ]
+  ],
+  "Grind It": [
+    [
+      "Ginuwine",
+      "Pony"
+    ],
+    [
+      "Usher",
+      "Nice and Slow"
+    ],
+    [
+      "Usher",
+      "My Boo"
+    ],
+    [
+      "Miguel",
+      "Adorn"
+    ],
+    [
+      "Trey Songz",
+      "Slow Motion"
+    ],
+    [
+      "Chris Brown",
+      "Under the Influence"
+    ],
+    [
+      "The Weeknd",
+      "Earned It"
+    ],
+    [
+      "Jeremih",
+      "Birthday Sex"
+    ],
+    [
+      "Ciara",
+      "Body Party"
+    ],
+    [
+      "Aaliyah",
+      "Rock the Boat"
+    ]
+  ],
+  "Remixes": [
+    [
+      "Hamdi",
+      "Counting"
+    ],
+    [
+      "Disclosure",
+      "You & Me"
+    ],
+    [
+      "Kid Cudi",
+      "Pursuit of Happiness"
+    ],
+    [
+      "Travis Scott",
+      "Goosebumps"
+    ],
+    [
+      "Age of Love",
+      "The Age of Love"
+    ],
+    [
+      "David Guetta",
+      "Satisfaction"
+    ],
+    [
+      "Endor",
+      "Pump It Up"
+    ],
+    [
+      "ACRAZE",
+      "Do It to It"
+    ],
+    [
+      "FISHER",
+      "Losing It"
+    ],
+    [
+      "John Summit",
+      "Where You Are"
+    ],
+    [
+      "Cloonee",
+      "Stephanie"
+    ]
+  ],
+  "Line Dances": [
+    [
+      "Cupid",
+      "Cupid Shuffle"
+    ],
+    [
+      "V.I.C.",
+      "Wobble"
+    ],
+    [
+      "DJ Casper",
+      "Cha Cha Slide"
+    ],
+    [
+      "DJ Twilight",
+      "Mississippi Cha Cha Slide"
+    ],
+    [
+      "Brooks",
+      "Boot Scootin"
+    ],
+    [
+      "Rednex",
+      "Cotton Eye Joe"
+    ],
+    [
+      "Los Del Mar",
+      "Macarena"
+    ],
+    [
+      "Marcia Griffiths",
+      "Electric Boogie"
+    ],
+    [
+      "Village People",
+      "YMCA"
+    ],
+    [
+      "Beyonce",
+      "Texas Hold"
+    ],
+    [
+      "Blanco Brown",
+      "The Git Up"
+    ]
+  ],
+  "Ski Lodge Vibes": [
+    [
+      "Fleetwood Mac",
+      "Dreams"
+    ],
+    [
+      "Fleetwood Mac",
+      "Go Your Own Way"
+    ],
+    [
+      "Tom Petty",
+      "American Girl"
+    ],
+    [
+      "Tom Petty",
+      "Free Fallin"
+    ],
+    [
+      "Steve Miller",
+      "The Joker"
+    ],
+    [
+      "Steve Miller",
+      "Fly Like an Eagle"
+    ],
+    [
+      "Eagles",
+      "Take It Easy"
+    ],
+    [
+      "Eagles",
+      "Life in the Fast Lane"
+    ],
+    [
+      "Bob Seger",
+      "Old Time Rock"
+    ],
+    [
+      "Journey",
+      "Any Way You Want It"
+    ],
+    [
+      "John Mellencamp",
+      "Jack"
+    ],
+    [
+      "Bryan Adams",
+      "Summer of 69"
+    ]
+  ],
+  "Cumbia Remix": [
+    [
+      "Mustard",
+      "Pure Water"
+    ],
+    [
+      "Daddy Yankee",
+      "Gasolina"
+    ]
+  ],
+  "Thot Shit": [
+    [
+      "Megan Thee Stallion",
+      "Savage"
+    ],
+    [
+      "Megan Thee Stallion",
+      "Body"
+    ],
+    [
+      "Megan Thee Stallion",
+      "Thot Shit"
+    ],
+    [
+      "Cardi B",
+      "Bodak Yellow"
+    ],
+    [
+      "Cardi B",
+      "Up"
+    ],
+    [
+      "GloRilla",
+      "TGIF"
+    ],
+    [
+      "GloRilla",
+      "Yeah Glo"
+    ],
+    [
+      "Sexyy Red",
+      "Get It Sexyy"
+    ],
+    [
+      "Latto",
+      "Big Energy"
+    ],
+    [
+      "Saweetie",
+      "Tap In"
+    ],
+    [
+      "Doja Cat",
+      "Paint the Town Red"
+    ]
+  ],
+  "Tejano.subfolders/Cumbia": [
+    [
+      "Selena",
+      "Bidi Bidi Bom Bom"
+    ],
+    [
+      "Selena",
+      "La Carcacha"
+    ],
+    [
+      "Grupo Limite",
+      "Te Aprovechas"
+    ],
+    [
+      "La Mafia",
+      "Me Duele Estar Solo"
+    ],
+    [
+      "La Sombra",
+      "El Sapo"
+    ]
+  ],
+  "Tejano.subfolders/Norteno Cumbia": [
+    [
+      "Grupo Frontera",
+      "No Se Va"
+    ],
+    [
+      "Grupo Frontera",
+      "Un x100to"
+    ],
+    [
+      "Grupo Frontera",
+      "Di Que Si"
+    ],
+    [
+      "Grupo Frontera",
+      "Ojitos Rojos"
+    ]
+  ]
+}
