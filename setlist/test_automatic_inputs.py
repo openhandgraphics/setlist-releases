@@ -6,7 +6,7 @@ def song(path,plays=0,artist='ABBA',title='Dancing Queen',version=''):
 class AutomaticSelectionTests(unittest.TestCase):
  def test_highest_count_excludes_versions_and_folder(self):
   tracks=[song('one.mp3',1),song('two.mp4',15),song('three.mp3',300,version='Remix'),song('KARAOKE/four.mp4',400),song('five.mp3',20)]
-  result=import_list.build(import_list.parse_text('ABBA - Dancing Queen'),tracks)
+  result=import_list.build(import_list.parse_text('ABBA - Dancing Queen','artist-title'),tracks)
   self.assertEqual(result['songs'][0]['path'],'five.mp3')
   self.assertIn('20 plays',result['songs'][0]['reason'])
  def test_popularity_cannot_change_artist_or_title(self):

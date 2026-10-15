@@ -15,7 +15,7 @@ def validate_rows(rows):
         clean.append({'artist':artist,'title':title})
     return clean
 
-def parse_text(text, order='artist-title'):
+def parse_text(text, order='title-artist'):
     if order not in ('artist-title','title-artist','title-only'):
         raise ValueError('Choose the order of artist and title.')
     rows=[]

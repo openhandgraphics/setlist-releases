@@ -1,12 +1,14 @@
 # Setlist for Windows
 
-VirtualDJ playlist studio and app updates. The `website/` folder contains the existing website; `setlist/` contains the desktop source for **1.7.15**.
+VirtualDJ playlist studio and app updates. The `website/` folder contains the existing website; `setlist/` contains the desktop source for **1.7.17** (release candidate; updater assets pending).
 
 ## Desktop behavior
 
 Describe a playlist or import a song list, review local matches, then explicitly approve adding the playlist to your selected DJ destination. Local playlist matching uses metadata and play counts, not AI or audio similarity. MP3/MP4 recordings are eligible; recognizable karaoke is excluded. Unchecked content preferences are neutral. Unknown content labels and insufficient local matches remain visible.
 
 Artist-style requests are distinct from by-artist requests. Conservative typo handling automatically corrects only confident, unambiguous names. Playlist adjustments preserve selected and favorite songs. Duration requests use an estimated DJ play time of up to 1:45 per song plus 25% spare choices, separately from full-file runtime.
+
+Version 1.7.17 defaults new pasted lists to **Song title - Artist** and retains the explicit **Artist - Song title** option. Prepared Spotify/photo text and restored saved entries retain their explicit format. Existing playlists and the VirtualDJ export mapping are unchanged.
 
 Version 1.7.15 moves the existing approval action beside Close, fixes exclusive navigation highlighting, balances review gutters, and estimates processing time only from credible measurements of current-stage work. Matching animation follows actual result events and never delays completion.
 
@@ -21,7 +23,7 @@ python -m pip install -r requirements-dev.txt
 .\scripts\test.ps1
 ```
 
-The test script runs 178 Python tests and nine JavaScript regression suites with a temporary isolated app profile and ephemeral port. It does not use your installed Setlist profile. Real music-library fixtures, profiles, credentials, and private verification reports are intentionally absent from this repository.
+The test script runs 182 Python tests and ten JavaScript regression suites with a temporary isolated app profile and ephemeral port. It does not use your installed Setlist profile. Real music-library fixtures, profiles, credentials, and private verification reports are intentionally absent from this repository.
 
 To run source without touching your normal profile:
 
