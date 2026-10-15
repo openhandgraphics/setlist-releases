@@ -16,7 +16,7 @@ import catalog_verify, playlist_history
 import conversation, task_progress, content_rating, hashlib, statistics
 
 ROOT=Path(getattr(sys,'_MEIPASS',Path(__file__).parent))
-VERSION='1.7.15'
+VERSION='1.7.17'
 DATA=Path(os.getenv('SETLIST_DATA',str(Path(os.getenv('LOCALAPPDATA',str(Path.home())))/'SetlistDesktop')))
 
 class Cancelled(Exception):pass
@@ -235,7 +235,7 @@ class App:
                     draft=dict(prepared,name='Photo requests',url='')
                 else:draft=self.spotify.playlist(args.get('url',''),self.checkpoint)
                 draft['id']=secrets.token_hex(12)
-                draft['rows']=import_list.parse_text(draft['text'])
+                draft['rows']=import_list.parse_text(draft['text'],'artist-title')
                 self.import_drafts[draft['id']]=draft
                 self.checkpoint('Ready to check the imported text')
                 with self.lock:self.import_draft=draft
@@ -244,7 +244,7 @@ class App:
             content_filter=content_rating.validate(args.get('contentFilter'))
             playlist_mode=args.get('mode','discovery')
             if playlist_mode not in ('library','discovery'):raise ValueError('Choose a playlist mode.')
-            rows=import_list.validate_rows(args['rows']) if 'rows' in args else import_list.parse_text(args.get('text',''),args.get('order','artist-title'))
+            rows=import_list.validate_rows(args['rows']) if 'rows' in args else import_list.parse_text(args.get('text',''),args.get('order','title-artist'))
             draft=self.import_drafts.get(args.get('draftId')) if 'draftId' in args else self.import_draft
             def work():
                 self.ensure_library()

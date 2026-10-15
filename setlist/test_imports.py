@@ -7,13 +7,13 @@ def track(artist,title,path='song.mp3',version=''):
 
 class ImportTests(unittest.TestCase):
     def test_formats_order_and_duplicates(self):
-        rows=import_list.parse_text('1. ABBA - Dancing Queen\n2. Hello by Adele\n3. Unknown title\n4. ABBA - Dancing Queen')
+        rows=import_list.parse_text('1. ABBA - Dancing Queen\n2. Hello by Adele\n3. Unknown title\n4. ABBA - Dancing Queen','artist-title')
         self.assertEqual([r['title'] for r in rows],['Dancing Queen','Hello','Unknown title','Dancing Queen'])
         self.assertEqual(import_list.parse_text('Hello - Adele','title-artist')[0]['artist'],'Adele')
         result=import_list.build(rows,[track('ABBA','Dancing Queen')])
         self.assertEqual([r['source'] for r in result['songs']],['library','suggestion','suggestion','library'])
     def test_versions_and_copies_need_review(self):
-        rows=import_list.parse_text('Whitney Houston - I Wanna Dance with Somebody')
+        rows=import_list.parse_text('Whitney Houston - I Wanna Dance with Somebody','artist-title')
         result=import_list.build(rows,[track('Whitney Houston','I Wanna Dance with Somebody (Karaoke)')])
         self.assertEqual(result['songs'][0]['source'],'suggestion')
         self.assertEqual(len(result['songs'][0]['candidates']),0)

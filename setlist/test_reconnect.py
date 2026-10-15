@@ -10,7 +10,7 @@ class ReconnectTests(unittest.TestCase):
    row=dict(artist='ABBA',title='Dancing Queen',path=str(Path(d,'song.mp3')),source='library',version='')
    Path(row['path']).write_bytes(b'test media')
    with patch.object(app.core,'scan',return_value=([row],[],[])) as scan:
-    state.action('importList',{'text':'ABBA - Dancing Queen'})
+    state.action('importList',{'text':'ABBA - Dancing Queen','order':'artist-title'})
     for _ in range(100):
      if state.task['state']!='running':break
      time.sleep(.01)

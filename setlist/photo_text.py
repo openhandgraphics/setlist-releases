@@ -29,7 +29,7 @@ def normalize(text,tracks=(),verify=None,layout='auto'):
         if explicit:
             if verify:
                 import import_list
-                row=import_list.parse_text(current)[0]
+                row=import_list.parse_text(current,'artist-title')[0]
                 pair(row['artist'],row['title'])
             else:entries.append(current)
             i+=1;continue
