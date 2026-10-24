@@ -104,7 +104,7 @@ def discover(root):
         if os.getenv(env):candidates.append(Path(os.environ[env])/'VirtualDJ'/'database.xml')
     return list(dict.fromkeys(x for x in candidates if x.is_file()))
 
-def scan(root, checkpoint=lambda msg:None):
+def scan(root, checkpoint=lambda msg:None, *, include_playlists=True):
     base=Path(root).resolve()
     if not base.is_dir():raise ValueError('Connect your music drive and choose an existing folder.')
     dbs=discover(base); tracks={}; warnings=[]; missing=0
@@ -135,7 +135,7 @@ def scan(root, checkpoint=lambda msg:None):
     # Include media absent from the DJ database, while retaining its labels and play counts.
     if not dbs:warnings.append('No VirtualDJ database found. Using embedded labels and filenames; DJ play counts are unavailable.')
     skipped_dirs={'$recycle.bin','system volume information','_dj organizer quarantine','setlist missing songs'}
-    for parent,dirs,files in os.walk(base,followlinks=False):
+    for parent,dirs,files in os.walk(base,followlinks=False,onerror=lambda e:warnings.append('Could not read a folder: '+str(e))):
         dirs[:]=[d for d in dirs if d.casefold() not in skipped_dirs and not Path(parent,d).is_symlink() and not Path(parent,d).is_junction()]
         checkpoint(f'Checking folders for additional music · {len(tracks):,} files')
         for name in files:
@@ -147,7 +147,7 @@ def scan(root, checkpoint=lambda msg:None):
             row['hasCdg']=p.with_suffix('.cdg').is_file()
             if not row['title']:row['title']=p.stem
             tracks[key]=row
-    for db in dbs:
+    for db in dbs if include_playlists else []:
         lists=db.parent/'MyLists'
         if not lists.is_dir():continue
         for p in lists.rglob('*.vdjfolder'):

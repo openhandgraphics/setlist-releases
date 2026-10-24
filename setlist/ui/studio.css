@@ -298,12 +298,12 @@ html[data-theme="dark"] .progress-sweep>span{background:#59c9cc}
 @media(max-width:900px){.search-activity{max-width:440px;margin:6px auto}.activity-window{height:84px}.progress-sweep{max-width:440px;margin:12px auto}.arc-source{min-width:0}}
 @media(prefers-reduced-motion:reduce){#activityRows{will-change:auto}.activity-window{mask-image:none;height:84px}}
 /* Soft glass treatment belongs to the progress surface, never to song rows. */
-#busyDialog.arc-dialog{border-radius:22px;border:1px solid #b4d9dc;background:linear-gradient(135deg,#f0fafbfa,#fffffffa 48%);box-shadow:0 20px 70px #123e4c30,0 4px 14px #123e4c12;backdrop-filter:blur(16px)}
-#busyDialog::backdrop{background:#183b4d45;backdrop-filter:blur(3px)}
+:is(#busyDialog.arc-dialog,#findDialog.find-dialog){border-radius:22px;border:1px solid #b4d9dc;background:linear-gradient(135deg,#f0fafbfa,#fffffffa 48%);box-shadow:0 20px 70px #123e4c30,0 4px 14px #123e4c12;backdrop-filter:blur(16px)}
+:is(#busyDialog,#findDialog)::backdrop{background:#183b4d45;backdrop-filter:blur(3px)}
 #busyDialog .playlist-topbar{background:transparent}
-html[data-theme="dark"] #busyDialog.arc-dialog{background:linear-gradient(135deg,#173b45fa,#192f3cfa 48%);border-color:#477784;box-shadow:0 20px 70px #0007}
+html[data-theme="dark"] :is(#busyDialog.arc-dialog,#findDialog.find-dialog){background:linear-gradient(135deg,#173b45fa,#192f3cfa 48%);border-color:#477784;box-shadow:0 20px 70px #0007}
 html[data-theme="dark"] #busyDialog .playlist-topbar{background:#192f3cf5}
-@media(prefers-reduced-transparency:reduce){#busyDialog.arc-dialog{background:#f7fcfc;backdrop-filter:none}#busyDialog::backdrop{backdrop-filter:none}html[data-theme="dark"] #busyDialog.arc-dialog{background:#192f3c}}
+@media(prefers-reduced-transparency:reduce){:is(#busyDialog.arc-dialog,#findDialog.find-dialog){background:#f7fcfc;backdrop-filter:none}:is(#busyDialog,#findDialog)::backdrop{backdrop-filter:none}html[data-theme="dark"] :is(#busyDialog.arc-dialog,#findDialog.find-dialog){background:#192f3c}}
 #busyDialog .playlist-topbar{background:#f7fcfcf5;backdrop-filter:blur(8px)}
 
 .playlist-ready #reviewView{animation:review-ready .24s ease-out}

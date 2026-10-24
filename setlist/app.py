@@ -12,11 +12,12 @@ import import_list, photo_import, spotify_import, photo_text
 import html, webbrowser
 import updater, update_monitor, installation
 import single_instance
+import music_to_find, youtube_window
 import catalog_verify, playlist_history
 import conversation, task_progress, content_rating, hashlib, statistics
 
 ROOT=Path(getattr(sys,'_MEIPASS',Path(__file__).parent))
-VERSION='1.7.17'
+VERSION='1.7.22'
 DATA=Path(os.getenv('SETLIST_DATA',str(Path(os.getenv('LOCALAPPDATA',str(Path.home())))/'SetlistDesktop')))
 
 class Cancelled(Exception):pass
@@ -28,6 +29,8 @@ class App:
         self.task={'state':'idle','message':'Ready','kind':''};self.root='';self.warnings=[];self.exported=''
         self.entry_cleared=False
         self.conversation_undo={}
+        self.music_to_find=music_to_find.Service(DATA)
+        self.find_spotify_lock=threading.Lock()
         self.content_filter=None
         self.timing=None;self.timing_history={}
         try:
@@ -121,6 +124,25 @@ class App:
         return hashlib.sha256(json.dumps(value,ensure_ascii=False).encode('utf8')).hexdigest()
 
     def action(self,method,args):
+        if method=='openYouTube':return youtube_window.open_search(args.get('url'))
+        if method=='musicToFind':return self.music_to_find.info()
+        if method=='previewMusicToFind':
+            return {'rows':import_list.parse_text(args.get('text',''),args.get('order','title-artist'))}
+        if method=='readMusicToFindSpotify':
+            # Read with the existing connection, independently of the current performance playlist/draft.
+            if not self.find_spotify_lock.acquire(blocking=False):raise ValueError('A Spotify playlist is already being read. Please wait.')
+            try:
+                draft=self.spotify.playlist(args.get('url',''))
+                return dict(name=draft['name'],url=draft['url'],rows=import_list.validate_rows(draft['rows']))
+            finally:self.find_spotify_lock.release()
+        if method=='createMusicToFind':
+            if 'rows' in args:return self.music_to_find.store.create_rows(args.get('name',''),args['rows'])
+            return self.music_to_find.store.create(args.get('name',''),args.get('text',''),args.get('order','title-artist'))
+        if method=='recheckMusicToFind':
+            with self.lock:
+                if self.task['state']=='running':raise ValueError('Finish the current library task before rechecking this list.')
+                return self.music_to_find.start(args.get('id'),self.root)
+        if method=='stopMusicToFind':return self.music_to_find.stop()
         if method in ('heartbeat','status'):self.last_seen=time.monotonic()
         if method=='heartbeat':return True
         if method=='dictate':return dictation.start()
@@ -422,7 +444,7 @@ def serve(app):
                 try:row,path=playback.media_row(app.result,pieces[3])
                 except ValueError:self.send_error(404);return
                 return playback.stream(self,path)
-            names={'/current.js':'current.js','/theme.js':'theme.js','/motion.js':'motion.js','/':'index.html','/app.js':'app.js','/conversation.js':'conversation.js','/sort.js':'sort.js','/youtube.js':'youtube.js','/content.js':'content.js','/style.css':'style.css','/studio.css':'studio.css','/icon.svg':'icon.svg'}
+            names={'/find-intake.js':'find-intake.js','/music-to-find.js':'music-to-find.js','/music-to-find.css':'music-to-find.css','/current.js':'current.js','/theme.js':'theme.js','/motion.js':'motion.js','/':'index.html','/app.js':'app.js','/conversation.js':'conversation.js','/sort.js':'sort.js','/youtube.js':'youtube.js','/content.js':'content.js','/style.css':'style.css','/studio.css':'studio.css','/icon.svg':'icon.svg'}
             if name not in names:self.send_error(404);return
             body=(ROOT/'ui'/names[name]).read_bytes()
             self.send_response(200);self.send_header('Content-Type',mimetypes.guess_type(names[name])[0] or 'text/plain');self.send_header('Content-Length',str(len(body)));self.send_header('Cache-Control','no-store');self.send_header('X-Content-Type-Options','nosniff');self.send_header('Content-Security-Policy',"default-src 'self'; style-src 'self'; img-src 'self' data:; script-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'");self.end_headers();self.wfile.write(body)

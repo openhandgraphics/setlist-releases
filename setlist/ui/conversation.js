@@ -21,9 +21,9 @@ function renderConversation(){
   if(row?.source!=='library'){
    const url=row&&youtubeSearchUrl(row);
    if(url){
-    const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';
+     const link=document.createElement('a');link.href=url;link.rel='noreferrer';
     link.textContent='Find on YouTube';link.className='youtube-search';
-    link.title='Opens a song search in a new tab. Check the artist and version; the match is not verified.';
+     link.title='Find this song on YouTube. Check the artist and version; the match is not verified.';
     checkbox.nextElementSibling.append(link);
    }
    continue;

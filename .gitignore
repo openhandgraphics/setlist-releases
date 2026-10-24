@@ -15,3 +15,9 @@ updates.json
 task-timings.json
 library.json
 server.json
+
+# Per-user companion and checklist state must never be published.
+bridge-config.json
+music-to-find.json
+backups/
+evidence/

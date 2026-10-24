@@ -1,0 +1,28 @@
+const assert=require('node:assert/strict');
+const {installYouTubeReuse}=require('../../setlist/ui/youtube.js');
+const deadline=setTimeout(()=>{throw Error('YouTube queue test did not complete');},3000);
+(async()=>{
+ let click,finish,calls=[],errors=[];
+ const link={href:'https://www.youtube.com/results?search_query=Song',setAttribute(){},removeAttribute(){}};
+ const event=()=>({target:{closest:()=>link},preventDefault(){this.prevented=true},stopPropagation(){}});
+ installYouTubeReuse({addEventListener(name,fn){assert.equal(name,'click');click=fn}},(name,args)=>{calls.push({name,args});return new Promise(resolve=>finish=resolve)},message=>errors.push(message));
+ const first=event(),second=event(),pending=click(first),duplicate=click(second);
+ assert.equal(first.prevented,true);assert.equal(second.prevented,true);assert.equal(calls.length,1);
+ assert.deepEqual(calls[0],{name:'openYouTube',args:{url:link.href}});finish();await Promise.all([pending,duplicate]);
+ const next=click(event());assert.equal(calls.length,2);finish();await next;
+ installYouTubeReuse({addEventListener(name,fn){click=fn}},async()=>{throw Error('runtime unavailable')},message=>errors.push(message));
+ await click(event());await click(event());assert.deepEqual(errors,['runtime unavailable','runtime unavailable']);
+ let resolveCall,queuedCalls=[],queuedErrors=[],successes=0;
+ const makeLink=n=>({href:'https://www.youtube.com/results?search_query='+n,busy:false,setAttribute(){this.busy=true},removeAttribute(){this.busy=false}});
+ const a=makeLink('A'),b=makeLink('B'),c=makeLink('C');
+ const e=link=>({target:{closest:()=>link},preventDefault(){},stopPropagation(){}});
+ installYouTubeReuse({addEventListener(name,fn){click=fn}},(name,args)=>{queuedCalls.push(args.url);return new Promise((resolve,reject)=>resolveCall={resolve,reject})},message=>queuedErrors.push(message),()=>successes++);
+ const pendingA=click(e(a));const pendingB=click(e(b));const pendingC=click(e(c));
+ assert.deepEqual(queuedCalls,[a.href]);assert(!b.busy);assert(c.busy);
+ resolveCall.resolve();await new Promise(setImmediate);assert.deepEqual(queuedCalls,[a.href,c.href]);
+ resolveCall.resolve();await Promise.all([pendingA,pendingB,pendingC]);assert(!a.busy&&!c.busy);assert.equal(successes,1);
+ const failing=click(e(a));const latest=click(e(b));resolveCall.reject(Error('old request failed'));await new Promise(setImmediate);
+ assert.equal(queuedCalls.at(-1),b.href);resolveCall.resolve();await Promise.all([failing,latest]);assert.deepEqual(queuedErrors,[]);
+ const cancelA=click(e(a));const cancelB=click(e(b));const newestA=click(e(a));resolveCall.resolve();await Promise.all([cancelA,cancelB,newestA]);assert.equal(queuedCalls.at(-1),a.href);assert(!b.busy);
+ console.log('YouTube reuse: same-tab backend, latest-click queue, duplicate coalescing, slow handoff and error recovery passed.');
+})().catch(error=>{console.error(error);process.exitCode=1}).finally(()=>clearTimeout(deadline));

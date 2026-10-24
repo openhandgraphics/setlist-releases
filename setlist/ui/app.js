@@ -9,8 +9,8 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 async function api(name,args={}){const res=await fetch('/api/'+name,{method:'POST',headers:{'Content-Type':'application/json','X-Setlist-Token':token},body:JSON.stringify(args)});const data=await res.json();if(!res.ok||data.error)throw Error(data.error||'Please try again.');return data.value;}
 function notice(text){$('noticeText').textContent=text;$('notice').hidden=false;}
 let currentScreen='create';
-function setActiveNavigation(which){const active={create:'navCreate',history:'navReview',review:'navCurrent',done:'navCurrent'}[which];for(const id of ['navCreate','navCurrent','navReview']){const button=$(id),selected=id===active;button.classList.toggle('active',selected);if(selected)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current')}}
-function view(which){currentScreen=which;document.body.classList.toggle('home-view',which==='create');for(const v of ['create','history','review','done'])$(v+'View').hidden=v!==which;setActiveNavigation(which);window.scrollTo({top:0,behavior:'smooth'});}
+function setActiveNavigation(which){const active={create:'navCreate',history:'navReview',review:'navCurrent',done:'navCurrent',find:'navFind'}[which];for(const id of ['navCreate','navCurrent','navReview','navFind']){const button=$(id),selected=id===active;button.classList.toggle('active',selected);if(selected)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current')}}
+function view(which){currentScreen=which;document.body.classList.toggle('home-view',which==='create');for(const v of ['create','history','review','done','find'])$(v+'View').hidden=v!==which;setActiveNavigation(which);window.scrollTo({top:0,behavior:'smooth'});}
 
 function busy(title){$('busyTitle').textContent=title;$('busyMessage').textContent='Starting…';$('stop').disabled=false;if(!$('busyDialog').open)$('busyDialog').showModal();}
 function finishBusy(){$('busyDialog').close();}
