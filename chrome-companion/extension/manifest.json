@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Setlist YouTube Companion",
+  "version": "1.0.2",
+  "description": "Reuse one YouTube tab for Setlist song searches.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq387OIPJjFljY0Jgwv5IGH6l6j6DePw2BD6IBzwjBw+pCXdgUCAH+ikcNssuYvPjbLX0PWO9alVwt2CbxnVZWidhHZznzQHHJAcLI/QTPnkD/a/yGOFsG5IB+NbNRW8J9SUmkiCfRtnKtv5xcgVbUtqqXN0CsO2t8owlf0kgQTA6xDdQNqCNK5uB2aa1L0j+eiWiCTYmfJUSokFOhPCkh+UmRO0LZQnXjdWmsSsJJaZHKbsZUtWr/qWqR83gFbNNGeooMOBIXAOROCbxxz/WITLEKUICg3EiMer4Kmg83ZyO6GBXHiJxmdg/cwgRIwSW5bPc+q+xahu7bcrqKx3KMwIDAQAB",
+  "permissions": [
+    "nativeMessaging",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "worker.js"
+  },
+  "action": {
+    "default_title": "Setlist YouTube companion",
+    "default_popup": "popup.html"
+  },
+  "minimum_chrome_version": "105"
+}

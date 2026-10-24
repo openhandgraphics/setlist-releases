@@ -1,0 +1,143 @@
+#findView{margin:0}
+.find-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px}
+.find-heading h1{font-size:27px;letter-spacing:-.7px;line-height:1.2;margin:0}
+#findView .primary,#findView .subtle{padding:8px 13px;font-size:11px;border-radius:8px}
+.find-toolbar{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:0 0 7px}
+.find-picker{flex:1;max-width:490px;min-width:0}
+.find-picker .field-label{font-size:11px;margin:0 0 4px}
+.find-picker select{height:34px;padding:5px 10px;font-size:12px}
+.find-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.find-accessible-title{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.find-snapshot{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 8px}
+.find-snapshot .hint{font-size:10px;line-height:1.5;margin:0}
+.find-summary{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0}
+.find-summary>div{border:1px solid var(--line);border-radius:7px;padding:5px 10px;display:flex;align-items:center;gap:6px;background:var(--surface,#fff)}
+.find-summary strong{font-size:15px;font-weight:650;line-height:1.2}
+.find-summary span{font-size:11px;color:var(--muted)}
+.find-coverage{font-size:11px;line-height:1.55;color:var(--muted);padding:1px 0}
+.find-coverage summary{cursor:pointer;font-weight:600}
+.find-coverage p{margin:7px 0}
+.find-caveat{font-size:10px;color:var(--muted);line-height:1.5;margin:3px 0 8px}
+#findEntries{border-top:1px solid var(--line)}
+.find-row{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;align-items:start;padding:8px 0;border-bottom:1px solid var(--line)}
+.find-number{font-size:11px;color:var(--muted);line-height:20px}
+.find-song{min-width:0}
+.find-identity{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;line-height:20px}
+.find-song h3{font-size:13px;margin:0;line-height:20px;overflow-wrap:anywhere}
+.find-artist{font-size:11px;color:var(--muted);overflow-wrap:anywhere}
+.find-preference{font-size:10px;font-weight:600;margin:0;line-height:16px}
+.find-details{font-size:10px;line-height:16px;color:var(--muted);overflow-wrap:anywhere}
+.find-details>summary{cursor:pointer;width:fit-content;max-width:100%;padding:0 2px 0 0;min-height:16px}
+.find-evidence{padding:7px 10px;margin:5px 0 1px;border-left:2px solid var(--line);font-size:11px;line-height:1.55}
+.find-evidence p{margin:0 0 7px}
+.find-evidence ul{padding-left:17px;margin:5px 0 9px}
+.find-evidence li+li{margin-top:4px}
+.find-original{margin-top:8px}
+.find-original p{margin:4px 0 0}
+.find-actions{display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:8px;padding-top:3px}
+.find-badge{display:inline-block;padding:4px 7px;border-radius:5px;font-size:10px;line-height:16px;font-weight:650;white-space:nowrap}
+.find-badge.have{background:#e6f6ef;color:#17754b}
+.find-badge.check{background:#fff1d5;color:#8b5c0d}
+.find-badge.missing{background:#eef0f5;color:#5a6576}
+.find-actions .youtube-search{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:5px 11px;border:1px solid var(--line);border-radius:999px;background:var(--surface,#fff);color:var(--text,#245467);font-size:10px;font-weight:600;line-height:18px;white-space:nowrap;text-decoration:none}
+.find-actions .youtube-search:hover{background:#e8f2f4;border-color:#90b5c0}
+.find-actions .youtube-search:focus-visible,.find-details>summary:focus-visible,.find-coverage>summary:focus-visible{outline:3px solid #72abbf;outline-offset:2px}
+#findJob{font-size:11px;line-height:1.5;color:var(--muted);margin:5px 0}
+#findJob:empty{display:none}
+#findEmpty{padding:18px 0;color:var(--muted);font-size:13px}
+.find-panel{border:1px solid var(--line);border-radius:12px;background:var(--surface,#fff);padding:16px;margin:12px 0}
+.find-create-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}
+.find-panel label{display:block;font-size:12px;font-weight:600}
+.find-panel input,.find-panel select{margin-top:6px}
+.find-panel textarea{display:block;width:100%;min-height:150px;padding:12px;margin:6px 0 12px;border:1px solid var(--line);border-radius:8px;background:transparent;color:inherit;font:inherit;font-size:13px;line-height:1.5;resize:vertical}
+html[data-theme="dark"] .find-panel,html[data-theme="dark"] .find-summary>div{background:#171e29}
+html[data-theme="dark"] .find-badge.have{background:#163e30;color:#7de3b4}
+html[data-theme="dark"] .find-badge.check{background:#49381b;color:#f5cc7a}
+html[data-theme="dark"] .find-badge.missing{background:#293345;color:#bac8df}
+html[data-theme="dark"] .find-actions .youtube-search{background:#203541;color:#bde5ed;border-color:#3a5868}
+html[data-theme="dark"] .find-actions .youtube-search:hover{background:#2c4b5a}
+
+/* The glass surface/backdrop is shared with the existing playlist-maker in studio.css. */
+#findDialog.find-dialog{width:min(720px,calc(100vw - 40px));max-width:none;max-height:88vh;padding:22px;overflow:auto;scrollbar-width:thin;scrollbar-gutter:stable;overscroll-behavior:contain;text-align:left}
+#findView .find-heading{align-items:flex-start;margin:0 0 12px;gap:12px}
+.find-heading .eyebrow{font-size:9px;letter-spacing:1.8px;margin:0 0 5px}
+#findHeading{font-size:23px;letter-spacing:-.5px}
+.find-intro{font-size:12px;line-height:1.5;color:var(--muted);margin:5px 0 0}
+#findView .find-close{font-size:23px;line-height:26px;padding:2px 10px;flex:none}
+.find-main-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 14px}
+.find-main-actions .hint{font-size:11px;margin:0}
+.find-toolbar{gap:10px;margin-top:8px}
+.find-picker{max-width:none}
+.find-identity{gap:0 8px}
+.find-row{padding:7px 0}
+.find-actions{gap:5px 9px;padding-top:3px}
+.find-actions .youtube-search{min-height:27px;margin:0;padding:3px 10px;line-height:19px}
+.find-badge{font-size:10px;padding:3px 7px;line-height:17px}
+.find-details{display:inline-block;max-width:100%}
+.find-details[open]{flex-basis:100%;width:100%}
+.find-details>summary{min-height:22px;line-height:22px}
+.find-panel{margin:0 0 14px;padding:14px;border-radius:12px;background:transparent}
+.find-intake-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.find-intake-heading h2{font-size:16px;margin:0}
+.find-source-tabs{display:flex;gap:3px;padding:3px;background:#e5eff2;border-radius:9px;width:fit-content;margin-bottom:12px}
+.find-source-tabs button{background:transparent;border:0;padding:6px 13px;border-radius:7px;font:inherit;font-size:12px;color:var(--muted);cursor:pointer}
+.find-source-tabs [aria-selected="true"]{background:#fff;color:#185668;box-shadow:0 1px 4px #123e4c18;font-weight:650}
+.find-panel textarea{min-height:110px;max-height:220px;font-size:12px;margin:6px 0;resize:vertical}
+.find-panel input,.find-panel select{height:33px;font-size:12px;padding:5px 9px;min-width:0;width:100%}
+.find-panel .hint{font-size:11px;line-height:1.5;margin:5px 0}
+.find-format{display:flex!important;align-items:center;gap:10px;font-size:11px!important;margin-top:8px}
+.find-format select{max-width:230px;margin:0}
+.find-drop-zone{border:1px dashed #b0cbd2;border-radius:9px;padding:11px}
+.find-drop-zone.dragging{border-color:#078a96;background:#e1f4f4}
+.find-drop-help{font-size:10px;color:var(--muted);margin:9px 0 0}
+.find-name-row{display:flex;align-items:flex-end;gap:12px;margin-top:12px}
+.find-name-row label{flex:1;min-width:0}
+.find-name-row button{flex:none;height:33px}
+.find-spotify-connection{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.find-preview{margin-top:13px;padding-top:10px;border-top:1px solid var(--line)}
+.find-preview h3{font-size:13px;margin:0}
+#findPreviewRows{max-height:180px;overflow:auto;margin:7px 0 10px;padding-left:25px;font-size:12px}
+#findPreviewRows li{padding:3px 0}
+#findPreviewRows span{color:var(--muted);margin-left:8px}
+.find-save-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+#findFeedback{font-size:12px;color:var(--muted);line-height:1.5;margin:6px 0 10px}
+#findFeedback:empty{display:none}
+#findFeedback.error{color:#a03922}
+#findNoticeHost .notice{margin:0 0 10px}
+#findSaved[hidden],#findEmpty[hidden],#findCreate[hidden],#findPreview[hidden],#findTextPanel[hidden],#findSpotifyPanel[hidden]{display:none}
+html[data-theme="dark"] .find-source-tabs{background:#122b38}
+html[data-theme="dark"] .find-source-tabs [aria-selected="true"]{background:#2d4b58;color:#d8f1f5}
+html[data-theme="dark"] .find-drop-zone{border-color:#477784}
+html[data-theme="dark"] .find-drop-zone.dragging{background:#214d58}
+html[data-theme="dark"] #findFeedback.error{color:#ffb5a3}
+@media(max-width:650px){#findDialog.find-dialog{width:calc(100vw - 24px);padding:16px;max-height:92vh}.find-toolbar{align-items:stretch;flex-direction:column}.find-main-actions{gap:7px}.find-main-actions .hint{flex-basis:100%}.find-row{grid-template-columns:17px minmax(0,1fr);gap:6px}.find-name-row{align-items:stretch;flex-direction:column;gap:9px}.find-format{align-items:stretch;flex-direction:column;gap:4px}.find-format select{max-width:none}.find-snapshot{gap:3px}.find-summary>div{padding:5px 7px}.find-intake-heading{align-items:flex-start}}
+
+/* Keep the glass frame and controls still; scroll the songs inside the frame. */
+#findDialog.find-dialog{overflow:hidden;scrollbar-gutter:auto}
+#findDialog[open]{display:flex;flex-direction:column}
+#findView{display:flex;flex-direction:column;min-height:0;max-height:calc(88vh - 46px);width:100%}
+#findView>.find-heading,#findView>.find-main-actions,#findFeedback,#findNoticeHost{flex-shrink:0}
+#findSaved{display:flex;flex-direction:column;min-height:0;flex:1 1 auto}
+#findSaved>.find-toolbar,#findSaved>.find-snapshot,#findSaved>.find-summary,#findSaved>.find-coverage,#findSaved>.find-caveat,#findJob{flex-shrink:0}
+#findEntries{overflow-y:auto;min-height:0;flex:1 1 auto;overscroll-behavior:contain;touch-action:pan-y;scrollbar-width:none;padding-right:3px}
+#findEntries::-webkit-scrollbar,#findPreviewRows::-webkit-scrollbar{display:none;width:0;height:0}
+#findEntries:focus-visible,#findPreviewRows:focus-visible{outline:2px solid #72abbf;outline-offset:-2px}
+#findView .find-close{display:grid;place-items:center;width:30px;height:30px;min-width:30px;flex:0 0 30px;padding:0;line-height:1}
+.find-close svg{display:block;width:16px;height:16px}
+#findView:has(#findCreate:not([hidden]))>.find-main-actions,#findView:has(#findCreate:not([hidden]))>#findSaved,#findView:has(#findCreate:not([hidden]))>#findEmpty{display:none}
+#findCreate:not([hidden]){display:flex;flex:1 1 auto;min-height:0;margin-bottom:0}
+#findCreateForm{display:flex;flex-direction:column;flex:1;min-height:0;max-width:100%}
+.find-intake-heading,.find-source-tabs,.find-drop-zone,.find-name-row,.find-save-row{flex-shrink:0}
+#findPreview:not([hidden]){display:flex;flex-direction:column;flex:1 1 auto;min-height:0}
+#findPreview>h3,#findPreview>.hint{flex-shrink:0}
+#findPreviewRows{flex:1 1 auto;min-height:0;scrollbar-width:none;overscroll-behavior:contain;touch-action:pan-y}
+@media(max-width:650px){#findView{max-height:calc(92vh - 34px)}}
+@media(max-height:740px){
+ #findView .find-heading{margin-bottom:8px}.find-heading .eyebrow,.find-intro{display:none}
+ #findView .find-main-actions{margin-bottom:7px}.find-summary{margin:4px 0}.find-snapshot{margin-bottom:4px}
+ #findCreate{padding:9px}.find-intake-heading{margin-bottom:6px}.find-source-tabs{margin-bottom:6px}
+ .find-panel textarea{height:64px;min-height:64px;max-height:64px;resize:none;padding:7px;margin:4px 0}
+ .find-drop-zone{padding:8px}.find-drop-help,#findPasteHelp,#findPreview>.hint{display:none}
+ .find-name-row{margin-top:6px}.find-preview{margin-top:7px;padding-top:6px}
+ #findFeedback{margin:3px 0 6px;font-size:11px}.find-save-row>.hint{font-size:10px}
+}

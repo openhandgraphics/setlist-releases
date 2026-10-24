@@ -1,0 +1,12 @@
+const assert=require('node:assert/strict');
+const {playlistLink,droppedText}=require('../../setlist/ui/find-intake.js');
+const id='1234567890abcdefghijkl',url='https://open.spotify.com/playlist/'+id;
+for(const v of [url+'?si=abc',`https://open.spotify.com/intl-es/playlist/${id}`,`spotify:playlist:${id}`])assert.equal(playlistLink(v),url);
+for(const v of ['https://evil.example/playlist/'+id,'https://open.spotify.com/track/'+id,'javascript:alert(1)','https://open.spotify.com.evil/playlist/'+id,'https://user@open.spotify.com/playlist/'+id,url+'\n'+url])assert.equal(playlistLink(v),null);
+const transfer=(uri,plain='',files=[])=>({files,getData:type=>type==='text/uri-list'?uri:plain});
+assert.equal(droppedText(transfer('# comment\r\n'+url)),url);
+assert.equal(droppedText(transfer('',`spotify:playlist:${id}`)),url);
+assert.throws(()=>droppedText(transfer(url,'',[{}])),/File drops/);
+assert.throws(()=>droppedText(transfer(url+'\n'+url)),/supported playlist link/);
+assert.throws(()=>droppedText(transfer('', '<a href="'+url+'">untyped HTML</a>')),/supported playlist link/);
+console.log('Find intake: canonical Spotify links, plain/URI drop payloads, malformed URLs and unsupported drops passed.');
